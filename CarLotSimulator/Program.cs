@@ -6,6 +6,51 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
+            var carLot = new CarLot();
+           
+            //Using dot notation.
+            var jakesCar = new Car();
+            jakesCar.Make = "Jeep";
+            jakesCar.Model = "Cherokee";
+            jakesCar.Year = 2016;
+            jakesCar.EngineNoise = "Vroom";
+            jakesCar.HonkNoise = "Boop boop";
+            jakesCar.IsDrivable = true;
+
+            //Object Initializer Syntax
+            var lukesCar = new Car()
+            {
+                Make = "Ford",
+                Model = "F150",
+                Year = 2008,
+                EngineNoise = "Sputter",
+                HonkNoise = "Honk honk",
+                IsDrivable = false
+            };
+
+            //Using the constructor to allow parameter values to be placed inside properties.
+            var johnsCar = new Car(2013, "Honda", "Civic", "Zoom", "Beep beep", true);
+
+            lukesCar.MakeHonkNoise();
+            lukesCar.MakeEngineNoise();
+
+            johnsCar.MakeHonkNoise();
+            johnsCar.MakeEngineNoise();
+
+            jakesCar.MakeHonkNoise();
+            jakesCar.MakeEngineNoise();
+
+            jakesCar.CarDetails();
+
+            carLot.LotList.Add(jakesCar);
+            carLot.LotList.Add(johnsCar);
+            carLot.LotList.Add(lukesCar);
+
+            foreach (var car in carLot.LotList)
+            {
+                Console.WriteLine($"Year: {car.Year} Make: {car.Make} Model: {car.Model}");
+            }
+
             //TODO
 
             //Create a seperate class file called Car
